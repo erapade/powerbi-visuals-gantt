@@ -447,7 +447,9 @@ module powerbi.extensibility.visual {
                 tooltipDataArray.push({ displayName: "Start Date", value: formatters.startDateFormatter.format(task.start) });
             }
 
-            tooltipDataArray.push({ displayName: "Duration", value: `${formatters.durationFormatter.format(task.duration)} ${timeInterval}` });
+            /* ERAPADE: Removed formatting below since "duration" was rouded to integer. This shalle probably be replaced by other formatters */
+            //tooltipDataArray.push({ displayName: "Duration", value: `${formatters.durationFormatter.format(task.duration)}      ${timeInterval}` });
+            tooltipDataArray.push({ displayName: "Duration", value: `${task.duration} ${timeInterval}` });
             tooltipDataArray.push({ displayName: "Completion", value: formatters.completionFormatter.format(task.completion) });
 
             if (task.resource) {
